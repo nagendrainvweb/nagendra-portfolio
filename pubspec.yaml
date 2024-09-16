@@ -1,0 +1,46 @@
+name: personal_web
+description: Nagendra Prajapati portfolio website.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.3.0
+  ms_undraw: ^3.2.0
+  get: ^4.6.6
+  flutter_spinkit: ^5.2.1
+  page_transition: ^2.1.0
+  icons_plus: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/resume/
+    - assets/images/logo/
+    - assets/images/
+    - assets/images/portfolio/
+
+  fonts:
+    - family: MySocialIcons
+      fonts:
+        - asset: assets/fonts/MySocialIcons.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: assets/fonts/Ubuntu-Regular.ttf
+        - asset: assets/fonts/Ubuntu-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Ubuntu-Bold.ttf
+          weight: 700
