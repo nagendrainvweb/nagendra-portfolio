@@ -108,10 +108,7 @@ class AppDrawer extends StatelessWidget {
                               }
                               break;
                             case 'Resume':
-                            final Uri uri = Uri.parse('https://drive.google.com/file/d/1HwbM3Tq7jX5JI1Ypuijg8oUzk9YBaGjD/view?usp=drive_link');
-                            if(await canLaunchUrl(uri)){
-                              launchUrl(uri);
-                            }
+                           UrlHelper.viewResume();
                               break;
                             case 'Skills':
                               break;

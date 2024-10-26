@@ -68,103 +68,103 @@ class _PortfolioContentState extends State<PortfolioContent>
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    if(widget.isMobile){
-    return ListView.builder(
-      itemCount: PortfolioData.getPortfolioList().length,
-      physics: ClampingScrollPhysics(),
-      itemBuilder: (context, index) {
-        PortfolioData data = PortfolioData.getPortfolioList()[index];
-               return Card(
-          elevation: 6,
-          color: kPrimaryColor.withOpacity(0.7),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14)),
-          child: GestureDetector(
-            onTap: ()async{
-                                          final uri = Uri.parse(data.link ?? '');
-                            if(await canLaunchUrl(uri)){
-                              launchUrl(uri);
-                            }
-            },
-            child: Stack(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
-                        child: Container(
-                          // color: Colors.white,
-                          child: Image.asset(
-                            data.imageUrl ?? '',
-                            height: size.height * 0.25,
-                            width: double.maxFinite,
-                            fit: BoxFit.cover,
+    if (widget.isMobile) {
+      return ListView.builder(
+        itemCount: PortfolioData.getPortfolioList().length,
+        physics: ClampingScrollPhysics(),
+        itemBuilder: (context, index) {
+          PortfolioData data = PortfolioData.getPortfolioList()[index];
+          return Card(
+            elevation: 6,
+            color: kPrimaryColor.withOpacity(0.7),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+            child: GestureDetector(
+              onTap: () async {
+                final uri = Uri.parse(data.link ?? '');
+                if (await canLaunchUrl(uri)) {
+                  launchUrl(uri);
+                }
+              },
+              child: Stack(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 12),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Container(
+                            // color: Colors.white,
+                            child: Image.asset(
+                              data.imageUrl ?? '',
+                              height: size.height * 0.25,
+                              width: double.maxFinite,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                      //  Text(
-                      //         data.type ?? '',
-                      //         style: TextStyle(
-                      //             fontSize: 14.0, color: Colors.white70),
-                      //       ),
-                    ],
+                        //  Text(
+                        //         data.type ?? '',
+                        //         style: TextStyle(
+                        //             fontSize: 14.0, color: Colors.white70),
+                        //       ),
+                      ],
+                    ),
                   ),
-                ),
-                // Visibility(
-                //   visible: isHover,
-                //   child: InkWell(
-                //     child: Container(
-                //       height: double.maxFinite,
-                //       width: double.maxFinite,
-                //       decoration: BoxDecoration(
-                //         color: Colors.white24,
-                //         borderRadius: BorderRadius.circular(14)
-                //       ),
-                //       child: Center(
-                //         child: IconButton(
-                //           onPressed: ()async {
-                //             final uri = Uri.parse(data.link ?? '');
-                //             if(await canLaunchUrl(uri)){
-                //               launchUrl(uri);
-                //             }
-                //           },
-                //           icon: Icon(
-                //             Bootstrap.github,
-                //             size: 60,
-                //             color: kPrimaryColor,
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // )
-              ],
+                  // Visibility(
+                  //   visible: isHover,
+                  //   child: InkWell(
+                  //     child: Container(
+                  //       height: double.maxFinite,
+                  //       width: double.maxFinite,
+                  //       decoration: BoxDecoration(
+                  //         color: Colors.white24,
+                  //         borderRadius: BorderRadius.circular(14)
+                  //       ),
+                  //       child: Center(
+                  //         child: IconButton(
+                  //           onPressed: ()async {
+                  //             final uri = Uri.parse(data.link ?? '');
+                  //             if(await canLaunchUrl(uri)){
+                  //               launchUrl(uri);
+                  //             }
+                  //           },
+                  //           icon: Icon(
+                  //             Bootstrap.github,
+                  //             size: 60,
+                  //             color: kPrimaryColor,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // )
+                ],
+              ),
             ),
-          ),
-        );
-      },
-    );
-    }else{
-    return GridView.builder(
-      itemCount: PortfolioData.getPortfolioList().length,
-      physics: ClampingScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // number of items in each row
-        childAspectRatio: 0.9,
-        mainAxisSpacing: 8.0, // spacing between rows
-        crossAxisSpacing: 8.0, // spacing between columns
-      ),
-      itemBuilder: (context, index) {
-        PortfolioData data = PortfolioData.getPortfolioList()[index];
-        return ProjectItemWidget(data: data, size: size);
-      },
-    );
+          );
+        },
+      );
+    } else {
+      return GridView.builder(
+        itemCount: PortfolioData.getPortfolioList().length,
+        physics: ClampingScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // number of items in each row
+          childAspectRatio: 0.9,
+          mainAxisSpacing: 8.0, // spacing between rows
+          crossAxisSpacing: 8.0, // spacing between columns
+        ),
+        itemBuilder: (context, index) {
+          PortfolioData data = PortfolioData.getPortfolioList()[index];
+          return ProjectItemWidget(data: data, size: size);
+        },
+      );
     }
-
   }
 
   endPage() async {
@@ -195,106 +195,102 @@ class ProjectItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return HoverBuilder(
-      builder: (isHover) {
-        return Card(
-          elevation: 6,
-          color: kPrimaryColor.withOpacity(0.7),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14)),
-          child: Stack(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(14),
-                      child: Container(
-                        // color: Colors.white,
-                        child: Image.asset(
-                          data.imageUrl ?? '',
-                          height: size.height * 0.25,
-                          width: double.maxFinite,
-                          fit: BoxFit.cover,
-                        ),
+    return HoverBuilder(builder: (isHover) {
+      return Card(
+        elevation: 6,
+        color: kPrimaryColor.withOpacity(0.7),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+        child: Stack(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(14),
+                    child: Container(
+                      // color: Colors.white,
+                      child: Image.asset(
+                        data.imageUrl ?? '',
+                        height: size.width * 0.15,
+                        width: double.maxFinite,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            data.title ?? '',
-                            style: TextStyle(
-                                fontSize: 16.0, color: Colors.white),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  data.desc ?? '',
-                                  maxLines: 4,
-                                  style: TextStyle(
-                                    overflow: TextOverflow.ellipsis,
-                                    fontSize: 12.0,
-                                    color: Colors.white70,
-                                  ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          data.title ?? '',
+                          style: TextStyle(fontSize: 16.0, color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                data.desc ?? '',
+                                maxLines: 2,
+                                style: TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  fontSize: 12.0,
+                                  color: Colors.white70,
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    //  Text(
-                    //         data.type ?? '',
-                    //         style: TextStyle(
-                    //             fontSize: 14.0, color: Colors.white70),
-                    //       ),
-                  ],
-                ),
-              ),
-              Visibility(
-                visible: isHover,
-                child: InkWell(
-                  child: Container(
-                    height: double.maxFinite,
-                    width: double.maxFinite,
-                    decoration: BoxDecoration(
-                      color: Colors.white24,
-                      borderRadius: BorderRadius.circular(14)
-                    ),
-                    child: Center(
-                      child: IconButton(
-                        onPressed: ()async {
-                          final uri = Uri.parse(data.link ?? '');
-                          if(await canLaunchUrl(uri)){
-                            launchUrl(uri);
-                          }
-                        },
-                        icon: Icon(
-                          Bootstrap.github,
-                          size: 60,
-                          color: kPrimaryColor,
+                            ),
+                          ],
                         ),
+                      ],
+                    ),
+                  ),
+                  //  Text(
+                  //         data.type ?? '',
+                  //         style: TextStyle(
+                  //             fontSize: 14.0, color: Colors.white70),
+                  //       ),
+                ],
+              ),
+            ),
+            Visibility(
+              visible: isHover,
+              child: InkWell(
+                onTap: () async {
+                  final uri = Uri.parse(data.link ?? '');
+                  if (await canLaunchUrl(uri)) {
+                    launchUrl(uri);
+                  }
+                },
+                child: Container(
+                  height: double.maxFinite,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                      color: Colors.white12,
+                      borderRadius: BorderRadius.circular(14)),
+                  child: Center(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Bootstrap.github,
+                        size: 60,
+                        color: Colors.red,
                       ),
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
-        );
-      }
-    );
+              ),
+            )
+          ],
+        ),
+      );
+    });
   }
 }

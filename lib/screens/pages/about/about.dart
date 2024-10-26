@@ -15,16 +15,22 @@ class _AboutSectionState extends State<AboutSection> {
           Spacer(flex: 1),
           //SizedBox(width: 32),
           Expanded(
-            flex: 7,
+            flex: 6,
             child: AboutManImage(),
           ),
-          Spacer(flex: 2),
+          Spacer(flex: 1),
           //SizedBox(width: 36),
           Expanded(
             flex: 6,
-            child: AboutContent(),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  AboutContent(),
+                ],
+              ),
+            ),
           ),
-          Spacer(flex: 2),
+         const SizedBox(width: 40,)
         ],
       ),
     );

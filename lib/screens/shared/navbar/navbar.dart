@@ -117,11 +117,7 @@ class Navbar extends StatelessWidget {
                             }
                             break;
                           case 'Resume':
-                            final Uri uri = Uri.parse(
-                                'https://drive.google.com/file/d/1HwbM3Tq7jX5JI1Ypuijg8oUzk9YBaGjD/view?usp=drive_link');
-                            if (await canLaunchUrl(uri)) {
-                              launchUrl(uri);
-                            }
+                            UrlHelper.viewResume();
                             break;
                           case 'Skills':
                             if (selectedPage != Pages.SKILLS) {
@@ -162,12 +158,7 @@ class _ResumeButtonState extends State<ResumeButton> {
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () async {
-        final Uri uri = Uri.parse(
-            'https://drive.google.com/file/d/1HwbM3Tq7jX5JI1Ypuijg8oUzk9YBaGjD/view?usp=drive_link');
-        if (await canLaunchUrl(uri)) {
-          launchUrl(uri);
-        }
-        // UrlHelper.downloadResume();
+        UrlHelper.viewResume();
       },
       onHover: (value) {
         if (mounted) {

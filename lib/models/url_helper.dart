@@ -4,12 +4,21 @@ import 'dart:js' as js;
 import 'dart:html' as html;
 
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class UrlHelper {
   static Future<void> launchUrl(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url, enableJavaScript: true);
+    if (await url_launcher.canLaunch(url)) {
+      await url_launcher.launch(url, enableJavaScript: true);
+    }
+  }
+
+  static Future viewResume() async {
+    final url =
+        'https://drive.google.com/file/d/1l3bMkmgYfxwuw6stahICyJGTIdkSWXFV/view?usp=sharing';
+    final Uri uri = Uri.parse(url);
+    if (await url_launcher.canLaunchUrl(uri)) {
+      url_launcher.launchUrl(uri);
     }
   }
 

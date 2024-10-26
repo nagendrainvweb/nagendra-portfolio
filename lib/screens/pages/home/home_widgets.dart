@@ -73,7 +73,7 @@ class _IntroductionState extends State<Introduction>
           if (showPosition) ...[
             SizedBox(height: 16),
             Typewriter(
-              'Mobile Application Developer',
+              'Lead Flutter Developer',
               animate: !positionSeen,
               textStyle: TextStyle(
                 color: Colors.blueGrey[900],
@@ -93,6 +93,8 @@ class _IntroductionState extends State<Introduction>
           if (showAbstract) ...[
             SizedBox(height: 24),
             Typewriter(
+              'I have 8 years of experience in mobile application development, including 6 years of specialized expertise in Flutter and 2 years in native Android and iOS '
+              'I am contributing to innovative projects at LTIMindtree, where I lead teams and manage end-to-end mobile solutions from conceptualization to deployment.\n'
               "I build neat, cool and scalable mobile apps with Flutter and I'm an aspiring deep learning engineer.\n"
               'I love to learn and build new stuff that are beneficial to the community and cool to work on.\n'
               'I also have great interest in the open source community.',

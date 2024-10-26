@@ -201,11 +201,7 @@ class _NavbarState extends State<Navbar> {
                           });
                           break;
                         case 'Resume':
-                          final Uri uri = Uri.parse(
-                              'https://drive.google.com/file/d/1HwbM3Tq7jX5JI1Ypuijg8oUzk9YBaGjD/view?usp=drive_link');
-                          if (await canLaunchUrl(uri)) {
-                            launchUrl(uri);
-                          }
+                          UrlHelper.viewResume();
                           break;
                         case 'Skills':
                           // UrlHelper.launchUrl(
@@ -276,12 +272,7 @@ class _ResumeButtonState extends State<ResumeButton> {
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () async {
-        // UrlHelper.downloadResume();
-        final Uri uri = Uri.parse(
-            'https://drive.google.com/file/d/1HwbM3Tq7jX5JI1Ypuijg8oUzk9YBaGjD/view?usp=drive_link');
-        if (await canLaunchUrl(uri)) {
-          launchUrl(uri);
-        }
+        UrlHelper.viewResume();
       },
       onHover: (value) {
         if (mounted) {
