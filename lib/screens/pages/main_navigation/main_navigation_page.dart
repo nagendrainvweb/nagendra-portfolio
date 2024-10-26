@@ -1,11 +1,8 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:personal_web/constants/types.dart';
-import 'package:personal_web/models/responsive/layout_wrapper.dart';
 import 'package:personal_web/models/responsive/responsive_layout.dart';
 import 'package:personal_web/screens/pages/about/about.dart';
 import 'package:personal_web/screens/pages/about/about_mobile.dart';
-import 'package:personal_web/screens/pages/about/about_widgets.dart';
 import 'package:personal_web/screens/pages/home/home.dart';
 import 'package:personal_web/screens/pages/home/home_mobile.dart';
 import 'package:personal_web/screens/pages/portfolio/portfolio.dart';
@@ -33,8 +30,8 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
     ),
     Pages.ABOUT: ResponsiveLayout(
       desktopView: AboutSection(),
-      mobileView: HomeSectionMobile(),
-      tabletView: AboutSectionMobile(),
+      mobileView: AboutSectionMobile(),
+      tabletView: AboutSection(),
     ),
     Pages.SKILLS: ResponsiveLayout(
       desktopView: SkillsSection(),

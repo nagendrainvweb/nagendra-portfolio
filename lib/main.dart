@@ -21,7 +21,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {  
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         HomeRoute: (context) => LayoutWrapper(
               page: HomeSection(),
               mobilePage: HomeSectionMobile(),
-                selectedPage: Pages.HOME,
+              selectedPage: Pages.HOME,
             ),
         AboutRoute: (context) => LayoutWrapper(
               page: AboutSection(),
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
               mobilePage: PortfolioSectionMobile(),
               selectedPage: Pages.PORTFOLIO,
             ),
-          MainNavigationRoute: (context) => LayoutWrapper(
+        MainNavigationRoute: (context) => LayoutWrapper(
               page: MainNavigationPage(),
               mobilePage: MainNavigationPage(),
               selectedPage: Pages.HOME,

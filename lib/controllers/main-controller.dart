@@ -2,12 +2,12 @@ import 'package:get/get.dart';
 import 'package:personal_web/constants/types.dart';
 
 class MainController extends GetxController {
-  Pages selectedPage = Pages.HOME;
-  int selectedPageNum = 0;
+  Rx<Pages> selectedPage = Pages.HOME.obs;
+  RxInt selectedPageNum = 0.obs;
 
   updatePage({required Pages page, required int pageNum}) {
-    selectedPage = page!=null?page:selectedPage;
-    selectedPageNum = pageNum!=null?pageNum:selectedPageNum;
+    selectedPage.value = page;
+    selectedPageNum.value = pageNum;
     update();
   }
 }

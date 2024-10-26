@@ -13,7 +13,9 @@ class AboutSectionMobile extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('assets/images/illustration/about.png'),
+            SizedBox(
+              height: 300,
+              child: AboutManImage()),
             SizedBox(height: 32),
             AboutContent(color: kPrimaryColor, isMobile: true),
           ],
