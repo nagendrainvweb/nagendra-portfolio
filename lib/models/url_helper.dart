@@ -15,7 +15,7 @@ class UrlHelper {
 
   static Future viewResume() async {
     final url =
-        'https://drive.google.com/file/d/1l3bMkmgYfxwuw6stahICyJGTIdkSWXFV/view?usp=sharing';
+        'https://avtechky.in/nagendra/resume/nagendra.pdf';
     final Uri uri = Uri.parse(url);
     if (await url_launcher.canLaunchUrl(uri)) {
       url_launcher.launchUrl(uri);
