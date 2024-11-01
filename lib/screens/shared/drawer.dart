@@ -6,8 +6,8 @@ import 'package:personal_web/controllers/main-controller.dart';
 import 'package:personal_web/models/change-page.dart';
 import 'package:personal_web/screens/shared/nav_bar.dart';
 import 'package:personal_web/models/url_helper.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class AppDrawer extends StatelessWidget {
   Pages selectedPage;
   AppDrawer({required this.selectedPage,});
@@ -110,8 +110,8 @@ class AppDrawer extends StatelessWidget {
                             case 'Resume':
                            UrlHelper.viewResume();
                               break;
-                            case 'Skills':
-                              break;
+                            // case 'Skills':
+                            //   break;
                             default:
                           
                         }

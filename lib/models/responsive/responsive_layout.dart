@@ -15,8 +15,6 @@ class ResponsiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, dimens) {
        var deviceWidth = MediaQuery.of(context).size.width;
-        var deviceHeight = MediaQuery.of(context).size.height;
-        var orientation = MediaQuery.of(context).orientation;
       if (deviceWidth < 600) {
           return mobileView;
         } else if (deviceWidth >= 600 && deviceWidth < 900) {

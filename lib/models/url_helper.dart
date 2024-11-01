@@ -8,8 +8,8 @@ import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class UrlHelper {
   static Future<void> launchUrl(String url) async {
-    if (await url_launcher.canLaunch(url)) {
-      await url_launcher.launch(url, enableJavaScript: true);
+    if (await url_launcher.canLaunchUrl(Uri.parse(url))) {
+      await url_launcher.launchUrl(Uri.parse(url));
     }
   }
 

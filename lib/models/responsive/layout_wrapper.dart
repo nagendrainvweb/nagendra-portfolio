@@ -4,6 +4,7 @@ import 'package:personal_web/models/responsive/screen_type_layout.dart';
 import 'package:personal_web/screens/body/body.dart';
 import 'package:personal_web/screens/body/mobile-body.dart';
 
+// ignore: must_be_immutable
 class LayoutWrapper extends StatelessWidget {
   Widget page;
   Widget mobilePage;

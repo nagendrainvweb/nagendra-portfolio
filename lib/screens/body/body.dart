@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:personal_web/constants/colors.dart';
 import 'package:personal_web/constants/types.dart';
-import 'package:personal_web/screens/shared/navbar/navbar.dart';
 import 'package:personal_web/screens/shared/social_media_bar.dart';
 
+// ignore: must_be_immutable
 class PageBody extends StatelessWidget {
   Widget page;
   Pages selectedPage;

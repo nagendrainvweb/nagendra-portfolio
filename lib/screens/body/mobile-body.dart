@@ -13,9 +13,8 @@ import 'package:personal_web/screens/pages/skills/skills.dart';
 import 'package:personal_web/screens/pages/skills/skills_mobile.dart';
 import 'package:personal_web/screens/shared/drawer.dart';
 import 'package:personal_web/screens/shared/nav_bar.dart';
-import 'package:personal_web/screens/shared/navbar/navbar.dart';
-import 'package:personal_web/screens/shared/social_media_bar.dart';
 
+// ignore: must_be_immutable
 class MobileBody extends StatelessWidget {
   Widget page;
   Pages selectedPage;

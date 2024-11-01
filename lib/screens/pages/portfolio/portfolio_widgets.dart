@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:personal_web/constants/colors.dart';
 import 'package:personal_web/models/hover_builder.dart';
@@ -32,10 +31,9 @@ class PortfolioContent extends StatefulWidget {
 
 class _PortfolioContentState extends State<PortfolioContent>
     with TickerProviderStateMixin {
-  static bool showPortfolio = false;
-  static bool portfolioSeen = false;
-  static bool whatSeen = false;
-  static double? space, widthSpace;
+  // static bool portfolioSeen = false;
+  // static bool whatSeen = false;
+  // static double? space, widthSpace;
 
   List? portfolio;
   List? scores;
@@ -44,8 +42,8 @@ class _PortfolioContentState extends State<PortfolioContent>
   @override
   void initState() {
     super.initState();
-    space = 30;
-    widthSpace = 50;
+    // space = 30;
+    // widthSpace = 50;
     showSpeed = 750;
     portfolioNumber = -2;
     portfolio = [
@@ -170,9 +168,9 @@ class _PortfolioContentState extends State<PortfolioContent>
   endPage() async {
     await Future.delayed(Duration(
         milliseconds: ((portfolio?.length ?? 0) + 1) * 3 * (showSpeed ?? 1)));
-    setState(() {
-      portfolioSeen = true;
-    });
+    // setState(() {
+    //   portfolioSeen = true;
+    // });
   }
 
   Widget sizedBox(double height, double width) {

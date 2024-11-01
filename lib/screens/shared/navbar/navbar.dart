@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:icons_plus/icons_plus.dart';
 import 'package:personal_web/constants/colors.dart';
 import 'package:personal_web/constants/types.dart';
 import 'package:personal_web/controllers/main-controller.dart';
-import 'package:personal_web/models/change-page.dart';
 import 'package:personal_web/models/url_helper.dart';
 import 'package:personal_web/screens/shared/navbar/item.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+// ignore: must_be_immutable
 class Navbar extends StatelessWidget {
   Pages selectedPage;
   Function(Pages) onNavSelected;
@@ -118,12 +116,6 @@ class Navbar extends StatelessWidget {
                             break;
                           case 'Resume':
                             UrlHelper.viewResume();
-                            break;
-                          case 'Skills':
-                            if (selectedPage != Pages.SKILLS) {
-                              onNavSelected(Pages.SKILLS);
-                              // changePage(context, Pages.PORTFOLIO);
-                            }
                             break;
                           default:
                         }

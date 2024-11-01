@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:ms_undraw/ms_undraw.dart';
 import 'package:personal_web/constants/colors.dart';
 import 'package:personal_web/models/typewriter.dart';
@@ -208,7 +207,7 @@ class _SkillsContentState extends State<SkillsContent>
 
   endPage() async {
     await Future.delayed(
-        Duration(milliseconds: (skills!.length + 1) * 3 * showSpeed!));
+        Duration(milliseconds: (skills!.length + 1) * 3 * showSpeed));
     setState(() {
       skillsSeen = true;
     });

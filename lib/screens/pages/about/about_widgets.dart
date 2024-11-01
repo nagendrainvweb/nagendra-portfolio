@@ -32,14 +32,14 @@ class AboutContent extends StatefulWidget {
 
 class _AboutContentState extends State<AboutContent>
     with TickerProviderStateMixin {
-  static bool showAbout = false;
-  static bool showStack1 = false;
-  static bool showStack2 = false;
+  // static bool showAbout = false;
+  // static bool showStack1 = false;
+  // static bool showStack2 = false;
 
   static bool whoSeen = false;
-  static bool aboutSeen = false;
-  static bool stack1Seen = false;
-  static bool stack2Seen = false;
+  // static bool aboutSeen = false;
+  // static bool stack1Seen = false;
+  // static bool stack2Seen = false;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +65,7 @@ class _AboutContentState extends State<AboutContent>
             onEnd: () {
               if (mounted) {
                 setState(() {
-                  showAbout = true;
+                  // showAbout = true;
                   whoSeen = true;
                 });
               }
@@ -94,10 +94,10 @@ class _AboutContentState extends State<AboutContent>
             ),
             onEnd: () {
               if (mounted) {
-                setState(() {
-                  showStack1 = true;
-                  aboutSeen = true;
-                });
+                // setState(() {
+                //   showStack1 = true;
+                //   aboutSeen = true;
+                // });
               }
             },
           ),
@@ -117,10 +117,10 @@ class _AboutContentState extends State<AboutContent>
               ),
               onEnd: () {
                 if (mounted) {
-                  setState(() {
-                    showStack2 = true;
-                    stack1Seen = true;
-                  });
+                  // setState(() {
+                  //   showStack2 = true;
+                  //   stack1Seen = true;
+                  // });
                 }
               },
             ),
@@ -154,9 +154,9 @@ class _AboutContentState extends State<AboutContent>
               ),
               onEnd: () {
                 if (mounted) {
-                  setState(() {
-                    stack2Seen = true;
-                  });
+                  // setState(() {
+                  //   stack2Seen = true;
+                  // });
                 }
               },
             ),
@@ -186,9 +186,9 @@ class _AboutContentState extends State<AboutContent>
               ),
               onEnd: () {
                 if (mounted) {
-                  setState(() {
-                    stack2Seen = true;
-                  });
+                  // setState(() {
+                  //   stack2Seen = true;
+                  // });
                 }
               },
             ),
@@ -218,9 +218,9 @@ class _AboutContentState extends State<AboutContent>
               ),
               onEnd: () {
                 if (mounted) {
-                  setState(() {
-                    stack2Seen = true;
-                  });
+                  // setState(() {
+                  //   stack2Seen = true;
+                  // });
                 }
               },
             ),
@@ -250,9 +250,9 @@ class _AboutContentState extends State<AboutContent>
               ),
               onEnd: () {
                 if (mounted) {
-                  setState(() {
-                    stack2Seen = true;
-                  });
+                  // setState(() {
+                  //   stack2Seen = true;
+                  // });
                 }
               },
             ),
@@ -282,9 +282,9 @@ class _AboutContentState extends State<AboutContent>
               ),
               onEnd: () {
                 if (mounted) {
-                  setState(() {
-                    stack2Seen = true;
-                  });
+                  // setState(() {
+                  //   stack2Seen = true;
+                  // });
                 }
               },
             ),

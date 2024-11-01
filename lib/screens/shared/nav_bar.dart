@@ -5,7 +5,6 @@ import 'package:personal_web/constants/types.dart';
 import 'package:personal_web/controllers/main-controller.dart';
 import 'package:personal_web/models/change-page.dart';
 import 'package:personal_web/models/url_helper.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MobileNavbar extends StatelessWidget implements PreferredSizeWidget {
   final textStyle = TextStyle(
@@ -202,11 +201,6 @@ class _NavbarState extends State<Navbar> {
                           break;
                         case 'Resume':
                           UrlHelper.viewResume();
-                          break;
-                        case 'Skills':
-                          // UrlHelper.launchUrl(
-                          //   'https://medium.com/@debrahkwesibuabeng2',
-                          // );
                           break;
                         default:
                           setState(() {
