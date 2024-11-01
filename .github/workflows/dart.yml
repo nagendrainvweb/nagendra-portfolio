@@ -1,42 +1,82 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Dart
+name: Flutter CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest  # Use macOS runner for compatibility with Mac development
+
+    strategy:
+      matrix:
+        flutter-version: [3.0.0]  # Update to the Flutter version your project uses
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
 
-      - name: Install dependencies
-        run: dart pub get
+      - name: Install Dependencies
+        run: flutter pub get
 
-      # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
+      - name: Analyze Code
+        run: flutter analyze
 
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
+      - name: Run Tests
+        run: flutter test
 
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
+      - name: Build APK
+        run: flutter build apk --release
+        env:
+          LANG: C.UTF-8
+
+      # Build iOS App (Only on macOS)
+      - name: Build iOS App
+        run: flutter build ios --release
+        env:
+          LANG: C.UTF-8
+
+      # Build Web App
+      - name: Build Web App
+        run: flutter build web --release
+
+  # deploy:
+  #   runs-on: macos-latest
+  #   needs: build
+  #   if: github.ref == 'refs/heads/main'
+
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v3
+
+  #     - name: Set up Flutter
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         flutter-version: 3.0.0
+
+  #     - name: Install Dependencies
+  #       run: flutter pub get
+
+  #     # Deploy Web to Linux Server
+  #     - name: Deploy Web to Linux Server
+  #       env:
+  #         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  #       run: |
+  #         # Set up SSH
+  #         mkdir -p ~/.ssh
+  #         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+  #         chmod 600 ~/.ssh/id_rsa
+
+  #         # Copy web build to the server
+  #         scp -o StrictHostKeyChecking=no -r build/web/* user@server_ip:/path/to/your/web/directory
+
+  #       shell: bash
