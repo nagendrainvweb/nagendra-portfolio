@@ -7,8 +7,8 @@ class HomeSection extends StatelessWidget {
     return Center(
       child: Row(
         children: [
-          Spacer(flex: 2),
-          SizedBox(width: 32),
+          const Spacer(flex: 2),
+          const SizedBox(width: 32),
           Expanded(
             flex: 6,
             child: Introduction(),
@@ -23,7 +23,7 @@ class HomeSection extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(flex: 2),
+          const Spacer(flex: 2),
         ],
       ),
     );
