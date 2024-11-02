@@ -1,7 +1,6 @@
 # 👤 My personal website
 
-> ### Checkout Website at https://ErfanRht.github.io/
-> ### Deployed using [Github Pages](https://pages.github.com/)
+> ### Checkout Website at https://avtechky.in/nagendra/portfolio
 
 ## Technologies Used
 
